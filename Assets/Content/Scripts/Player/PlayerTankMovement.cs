@@ -66,7 +66,11 @@ public class PlayerTankMovement : MonoBehaviour
             playerInputY * speed * Time.fixedDeltaTime
         );
 
-        tracksRotZ = Mathf.MoveTowards(tracksRotZ, -playerInputX * 35, 5);
+        if (playerInputY < 0)
+            tracksRotZ = Mathf.MoveTowards(tracksRotZ, playerInputX * 35, 5);
+        if (playerInputY >= 0)
+            tracksRotZ = Mathf.MoveTowards(tracksRotZ, -playerInputX * 35, 5);
+
         tracksRotZ = Mathf.Clamp(tracksRotZ, -35, 35);
         TankTracks.localEulerAngles = new Vector3(0, 0, tracksRotZ);
     }
