@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private GameSettings gameSettings;
     public static GameController instance = null;
+    [Space]
+    [SerializeField] private TankFactory _tankFactory;
 
     private void Start()
     {
@@ -18,5 +20,10 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
 
+    }
+
+    public void TestCreateTankEnemy()
+    {
+        var prefab = _tankFactory.GetNewEnemy();
     }
 }
