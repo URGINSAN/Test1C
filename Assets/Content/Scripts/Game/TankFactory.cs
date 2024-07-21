@@ -2,6 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankFactory : EnemyFactory<EnemyTank>
+public class TankFactory : TanksSpawnFactory<Transform>
 {
 }

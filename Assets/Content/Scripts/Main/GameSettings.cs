@@ -4,20 +4,56 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
-    [SerializeField] private int EnemyCountForWin;
-    [SerializeField] private float EnemyCreateTimeOut;
-    [SerializeField] private float EnemyMoveSpeed;
-    [SerializeField] private int EnemyHealth = 100;
+    public EnemyCountForWin enemyCountForWin;
+    public int EnemyCountForWinTotal;
+    public EnemyCreateTimeOut enemyCreateTimeOut;
+    public EnemyMoveSpeed enemyMoveSpeed;
+    public int EnemyHealth = 100;
     [Space]
-    [SerializeField] private float PlayerKillRadius = 2.0f;
-    [SerializeField] private float PlayerShootSpeed = 0.5f;
-    [SerializeField] private int PlayerShootDamage = 25;
-    [SerializeField] private float PlayerBulletSpeed = 2.5f;
+    public float PlayerKillRadius = 2.0f;
+    public float PlayerShootSpeed = 0.5f;
+    public int PlayerShootDamage = 25;
+    public float PlayerBulletSpeed = 2.5f;
+    public int PlayerHealth = 100;
+    public int PlayerDamage = 1;
+
+    public static GameSettings instance = null;
 
     private void Start()
     {
-        EnemyCountForWin = Random.Range(3, 10);
-        EnemyCreateTimeOut = Random.Range(1.5f, 2.5f);
-        EnemyMoveSpeed = Random.Range(1.5f, 2.5f);
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        EnemyCountForWinTotal = Random.Range(enemyCountForWin.Min, enemyCountForWin.Max);
+        //EnemyCreateTimeOut = Random.Range(1.5f, 2.5f);
+    }
+
+    public float CreateTimeOutDelay()
+    {
+        float delay = Random.Range(enemyCreateTimeOut.Min, enemyCreateTimeOut.Max);
+        return delay;
+    }
+
+    [System.Serializable]
+    public struct EnemyMoveSpeed
+    {
+        public float Min;
+        public float Max;
+    }
+
+    [System.Serializable]
+    public struct EnemyCountForWin
+    {
+        public int Min;
+        public int Max;
+    }
+
+    [System.Serializable]
+    public struct EnemyCreateTimeOut
+    {
+        public float Min;
+        public float Max;
     }
 }
