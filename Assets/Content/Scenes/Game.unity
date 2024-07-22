@@ -1808,6 +1808,7 @@ MonoBehaviour:
   GameStarted: 0
   PlayerTank: {fileID: 0}
   DestroyedEnemy: 0
+  NeedToDestroy: 0
 --- !u!4 &1556684597
 Transform:
   m_ObjectHideFlags: 0

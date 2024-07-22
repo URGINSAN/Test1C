@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 0
   destroyTime: 5
+  Explosion: {fileID: 6125894072575215740, guid: d1203fc463d3c1249b1ea067316f8e9c, type: 3}
 --- !u!50 &4029177203232998279
 Rigidbody2D:
   serializedVersion: 4

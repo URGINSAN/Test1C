@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 0
+  AppearPart: {fileID: 4328610986130066324, guid: 469d0000b0727a642918d0a12a0c6507, type: 3}
+  FinishPart: {fileID: 8153767051597056294, guid: e95f6c2546d08cd47b19d697117d205a, type: 3}
 --- !u!114 &5868514052937329364
 MonoBehaviour:
   m_ObjectHideFlags: 0

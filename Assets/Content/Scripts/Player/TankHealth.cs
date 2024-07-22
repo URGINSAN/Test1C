@@ -46,7 +46,7 @@ public class TankHealth : MonoBehaviour
         }
         if (type == Type.Enemy)
         {
-
+            GameController.instance.OnDestroyEnemyTank();
         }
         Destroy(gameObject);
     }

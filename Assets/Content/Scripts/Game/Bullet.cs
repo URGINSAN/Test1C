@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
     [SerializeField] float destroyTime = 5;
+    [SerializeField] GameObject Explosion;
     private Rigidbody2D rb;
 
     void Start()
@@ -28,15 +29,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy"))
+        if (collision.tag.Equals("Enemy"))
         {
-            collision.gameObject.GetComponent<TankHealth>().Damage();
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            collision.GetComponent<TankHealth>().Damage();
             Destroy(gameObject);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
     }
 }

@@ -6,12 +6,16 @@ public class EnemyTank : MonoBehaviour
 {
     public float MoveSpeed;
     private Rigidbody2D rb;
+    [SerializeField] GameObject AppearPart;
+    [SerializeField] GameObject FinishPart;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         MoveSpeed = Random.Range(GameSettings.instance.enemyMoveSpeed.Min, GameSettings.instance.enemyMoveSpeed.Max);
         GameController.instance.OnGameWin += OnGameWin;
+
+        Instantiate(AppearPart, transform.position, Quaternion.identity);
     }
 
     void FixedUpdate()
@@ -28,6 +32,8 @@ public class EnemyTank : MonoBehaviour
     {
         if (collision.transform.tag.Equals("Finish"))
         {
+            Instantiate(FinishPart, transform.position, Quaternion.identity);
+
             GameController.instance.EnemyTankDestinated();
             Destroy(gameObject);
         }
@@ -36,10 +42,5 @@ public class EnemyTank : MonoBehaviour
     void OnGameWin()
     {
         
-    }
-
-    private void OnDestroy()
-    {
-        GameController.instance.OnDestroyEnemyTank();
     }
 }
